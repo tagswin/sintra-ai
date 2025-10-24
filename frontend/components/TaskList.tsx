@@ -13,6 +13,10 @@ interface Task {
   updated_at: string;
   result?: any;
   error?: string;
+  agent?: {
+    name: string;
+    emoji: string;
+  };
 }
 
 interface TaskListProps {
