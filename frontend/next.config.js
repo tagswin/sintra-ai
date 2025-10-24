@@ -7,6 +7,13 @@ const nextConfig = {
   compress: true,
   poweredByHeader: false,
   
+  // Variables d'environnement
+  env: {
+    NEXT_PUBLIC_API_URL: process.env.NODE_ENV === 'production' 
+      ? 'https://votre-backend-railway.railway.app/api'
+      : 'http://localhost:8000/api'
+  },
+  
   // Optimisation des images
   images: {
     formats: ['image/webp', 'image/avif'],
