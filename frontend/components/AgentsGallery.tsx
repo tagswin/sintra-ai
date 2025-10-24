@@ -33,6 +33,79 @@ export default function AgentsGallery() {
       setLoading(false);
     } catch (error) {
       console.error('Erreur lors du chargement des agents:', error);
+      // Agents de fallback si l'API ne fonctionne pas
+      setAgents([
+        {
+          id: "soshie",
+          name: "Soshie",
+          emoji: "📱",
+          role: "Social Media Manager",
+          description: "Expert en médias sociaux, création de contenu et engagement communautaire",
+          specialties: ["Création de posts", "Stratégie de contenu", "Analyse des tendances"],
+          personality_traits: ["Créative et tendance", "Connaît les dernières trends"],
+          task_count: 0
+        },
+        {
+          id: "cassie",
+          name: "Cassie",
+          emoji: "💬",
+          role: "Customer Support Specialist",
+          description: "Experte en support client, résolution de problèmes et satisfaction client",
+          specialties: ["Réponses aux questions", "Résolution de problèmes", "Gestion des réclamations"],
+          personality_traits: ["Empathique et patiente", "Excellente communication"],
+          task_count: 0
+        },
+        {
+          id: "seomi",
+          name: "Seomi",
+          emoji: "🔍",
+          role: "SEO Specialist",
+          description: "Expert en référencement naturel, optimisation SEO et analyse de mots-clés",
+          specialties: ["Recherche de mots-clés", "Optimisation on-page", "Stratégie de backlinks"],
+          personality_traits: ["Analytique et méthodique", "Orientée données"],
+          task_count: 0
+        },
+        {
+          id: "dexter",
+          name: "Dexter",
+          emoji: "📊",
+          role: "Data Analyst",
+          description: "Expert en analyse de données, statistiques et insights business",
+          specialties: ["Analyse de données", "Création de rapports", "Prévisions"],
+          personality_traits: ["Précis et rigoureux", "Pensée analytique"],
+          task_count: 0
+        },
+        {
+          id: "buddy",
+          name: "Buddy",
+          emoji: "💼",
+          role: "Business Development Manager",
+          description: "Expert en développement business, stratégie et croissance",
+          specialties: ["Stratégies de croissance", "Analyse de marché", "Business plans"],
+          personality_traits: ["Visionnaire et stratégique", "Orienté croissance"],
+          task_count: 0
+        },
+        {
+          id: "emmie",
+          name: "Emmie",
+          emoji: "📧",
+          role: "Email Marketing Specialist",
+          description: "Experte en email marketing, automation et conversion",
+          specialties: ["Campagnes email", "Séquences d'automation", "Copywriting persuasif"],
+          personality_traits: ["Persuasive et convaincante", "Axée conversion"],
+          task_count: 0
+        },
+        {
+          id: "penn",
+          name: "Penn",
+          emoji: "✍️",
+          role: "Copywriter",
+          description: "Expert en rédaction publicitaire, contenu persuasif et storytelling",
+          specialties: ["Copywriting publicitaire", "Headlines accrocheurs", "Landing pages"],
+          personality_traits: ["Créatif et percutant", "Maître des mots"],
+          task_count: 0
+        }
+      ]);
       setLoading(false);
     }
   };

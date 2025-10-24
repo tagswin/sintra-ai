@@ -10,7 +10,7 @@ const nextConfig = {
   // Variables d'environnement
   env: {
     NEXT_PUBLIC_API_URL: process.env.NODE_ENV === 'production' 
-      ? 'https://votre-backend-railway.railway.app/api'
+      ? 'https://sintra-ai-backend-production.up.railway.app/api'
       : 'http://localhost:8000/api'
   },
   
