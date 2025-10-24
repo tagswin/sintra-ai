@@ -1,9 +1,13 @@
 {
-  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "version": 2,
   "buildCommand": "cd frontend && npm install && npm run build",
-  "devCommand": "cd frontend && npm run dev",
-  "installCommand": "cd frontend && npm install",
+  "outputDirectory": "frontend/.next",
+  "installCommand": "cd frontend && npm install --legacy-peer-deps",
   "framework": null,
-  "outputDirectory": "frontend/.next"
+  "regions": ["iad1"],
+  "functions": {
+    "frontend/app/**/*.{js,ts,tsx}": {
+      "maxDuration": 10
+    }
+  }
 }
-

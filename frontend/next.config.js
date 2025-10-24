@@ -1,23 +1,40 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  output: 'standalone', // ✅ Mode standalone pour réduire la taille
-  swcMinify: true, // ✅ Minification avec SWC (plus rapide)
+  swcMinify: true,
   
-  // Configuration pour la production
-  experimental: {
-    optimizePackageImports: ['framer-motion', '@headlessui/react', '@heroicons/react'],
-  },
+  // Configuration optimisée pour Vercel
+  compress: true,
+  poweredByHeader: false,
   
   // Optimisation des images
   images: {
-    domains: [],
-    formats: ['image/webp'],
+    formats: ['image/webp', 'image/avif'],
+    dangerouslyAllowSVG: true,
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
   
-  // Variables d'environnement (ne pas inclure de rewrites en production)
+  // Headers de sécurité et performance
+  async headers() {
+    return [
+      {
+        source: '/:path*',
+        headers: [
+          {
+            key: 'X-DNS-Prefetch-Control',
+            value: 'on'
+          },
+          {
+            key: 'X-Frame-Options',
+            value: 'SAMEORIGIN'
+          },
+        ],
+      },
+    ];
+  },
+  
+  // Rewrites pour le développement local uniquement
   async rewrites() {
-    // Seulement en développement local
     if (process.env.NODE_ENV === 'development') {
       return [
         {
