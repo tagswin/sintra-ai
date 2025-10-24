@@ -88,22 +88,19 @@ async def root():
 @router.get("/agent/status", response_model=AgentStatusResponse)
 async def get_agent_status():
     """Obtient le statut de l'agent"""
-    from core import SintraAgent
-    
     agent_id = "default"
     
     if agent_id not in active_agents:
-        # Créer un agent par défaut
-        import os
-        from dotenv import load_dotenv
-        load_dotenv()
-        
-        agent = SintraAgent(
-            api_key=os.getenv("OPENAI_API_KEY"),
-            anthropic_key=os.getenv("ANTHROPIC_API_KEY"),
-            model=os.getenv("AGENT_MODEL", "gpt-4-turbo-preview")
+        # Retourner un statut par défaut sans initialiser l'agent
+        return AgentStatusResponse(
+            status="idle",
+            current_task=None,
+            memory_usage="0 MB",
+            uptime="0s",
+            model="gpt-4-turbo-preview",
+            tools_available=["web_search", "calculator", "file_operations", "code_execution"],
+            last_activity=None
         )
-        active_agents[agent_id] = agent
     
     agent = active_agents[agent_id]
     status = agent.get_status()
