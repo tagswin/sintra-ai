@@ -42,6 +42,12 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Endpoint de healthcheck pour Railway
+@app.get("/health")
+async def health_check():
+    """Endpoint de healthcheck pour Railway"""
+    return {"status": "healthy", "message": "Sintra AI is running"}
+
 # Inclure les routes de l'API
 app.include_router(router)
 app.include_router(integrations_router, prefix="/api")
