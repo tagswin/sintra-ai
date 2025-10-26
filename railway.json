@@ -5,13 +5,15 @@
   },
   "deploy": {
     "numReplicas": 1,
-    "startCommand": "uvicorn main:app --host 0.0.0.0 --port $PORT",
+    "startCommand": "uvicorn main:app --host 0.0.0.0 --port $PORT --log-level info",
     "healthcheckPath": "/health",
-    "healthcheckTimeout": 300
+    "healthcheckTimeout": 60,
+    "restartPolicyType": "ON_FAILURE"
   },
   "environmentVariables": {
     "PYTHON_VERSION": "3.9.18",
     "PORT": "8000",
-    "HOST": "0.0.0.0"
+    "HOST": "0.0.0.0",
+    "PYTHONUNBUFFERED": "1"
   }
 }

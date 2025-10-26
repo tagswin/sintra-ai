@@ -46,7 +46,22 @@ app.add_middleware(
 @app.get("/health")
 async def health_check():
     """Endpoint de healthcheck pour Railway"""
-    return {"status": "healthy", "message": "Sintra AI is running"}
+    try:
+        # Vérifications basiques
+        return {
+            "status": "healthy", 
+            "message": "Sintra AI is running",
+            "timestamp": asyncio.get_event_loop().time(),
+            "version": "1.0.0"
+        }
+    except Exception as e:
+        return {"status": "unhealthy", "error": str(e)}
+
+# Endpoint de test simple
+@app.get("/")
+async def root():
+    """Endpoint racine pour test Railway"""
+    return {"message": "Sintra AI Backend is running!", "status": "ok"}
 
 # Inclure les routes de l'API
 app.include_router(router)
