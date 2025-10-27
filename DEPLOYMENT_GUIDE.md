@@ -80,7 +80,8 @@ git push -u origin main
    
 6. **Variables d'environnement** :
    ```
-   NEXT_PUBLIC_API_URL=https://votre-backend.railway.app/api
+   je 
+   =https://votre-backend.railway.app/api
    ```
    (on configurera l'URL du backend après)
 

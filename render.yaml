@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: sintra-ai-backend
+    env: python
+    buildCommand: pip install -r requirements_simple.txt
+    startCommand: python main_simple.py
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.9.18
+      - key: PORT
+        value: 8000
+      - key: HOST
+        value: 0.0.0.0
+      - key: PYTHONUNBUFFERED
+        value: 1
+
