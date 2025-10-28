@@ -5,9 +5,9 @@
   },
   "deploy": {
     "numReplicas": 1,
-    "startCommand": "python main_simple.py",
+    "startCommand": "python main_minimal.py",
     "healthcheckPath": "/health",
-    "healthcheckTimeout": 30,
+    "healthcheckTimeout": 10,
     "restartPolicyType": "ON_FAILURE"
   },
   "environmentVariables": {
